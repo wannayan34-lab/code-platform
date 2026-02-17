@@ -1,12 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Code Platform</title>
+  <title>Mini Replit Clone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: monospace;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      background: #111827;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    button {
+      padding: 6px 12px;
+      background: #22c55e;
+      border: none;
+      cursor: pointer;
+      color: black;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      height: 90vh;
+    }
+
+    textarea {
+      width: 50%;
+      background: #1e293b;
+      color: white;
+      border: none;
+      padding: 10px;
+      resize: none;
+      outline: none;
+    }
+
+    iframe {
+      width: 50%;
+      background: white;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to My AI Code Platform</h1>
-  <button onclick="hello()">Click Me</button>
 
-  <script src="app.js"></script>
+<header>
+  <h3>🚀 Mini Replit Clone</h3>
+  <button onclick="runCode()">Run</button>
+</header>
+
+<div class="container">
+  <textarea id="code">
+<h1>Hello World</h1>
+<p>Edit this code and click Run</p>
+  </textarea>
+
+  <iframe id="output"></iframe>
+</div>
+
+<script>
+  function runCode() {
+    let code = document.getElementById("code").value;
+    let output = document.getElementById("output").contentWindow.document;
+    output.open();
+    output.write(code);
+    output.close();
+  }
+</script>
+
 </body>
 </html>
